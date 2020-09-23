@@ -1,0 +1,47 @@
+# slnguid: 19D80B87-317A-4E4F-A806-E983942F33C4
+# projid: 6C2B7690-1185-4876-B379-D8C24B30C590
+# port: 52108
+# sslport: 44390
+#Old: 6C2B7690-1185-4876-B379-D8C24B30C590
+#New: 6C2B7690-1185-4876-B379-D8C24B30C590
+
+#Old: 44390
+#New: 44390
+Import-Module 'C:\temp\tools\file-replacer.0.4.5-beta\tools\file-replacer.psm1' -Global -DisableNameChecking
+$scriptDir = split-path -parent $MyInvocation.MyCommand.Definition
+
+$replacements = @{
+    # slnguid
+    '87E850E7-6476-4A78-8E81-7A397824C169' = '19D80B87-317A-4E4F-A806-E983942F33C4'
+    '047D49A7-E9B6-440B-9C5E-490AFFF74042' = '19D80B87-317A-4E4F-A806-E983942F33C4'
+    'D9F840D5-C378-4054-B568-F4789FB09971' = '19D80B87-317A-4E4F-A806-E983942F33C4'
+    'A66EAF2B-6072-4195-93E4-8A8C6341AEA6' = '19D80B87-317A-4E4F-A806-E983942F33C4'
+    '16C133FA-33D4-4A03-B47C-6EE4A47B0609' = '19D80B87-317A-4E4F-A806-E983942F33C4'
+    
+    # proj guid
+    '6C2B7690-1185-4876-B379-D8C24B30C590' = '6C2B7690-1185-4876-B379-D8C24B30C590'
+    '7906B9F9-60B3-41DC-8DCB-7AD6A0582AA9' = '6C2B7690-1185-4876-B379-D8C24B30C590'
+    '816C1C0D-2B66-4D12-B0B4-687C7F9E316D' = '6C2B7690-1185-4876-B379-D8C24B30C590'
+    'C51BB416-9812-4C48-AAF9-0B2204D64589' = '6C2B7690-1185-4876-B379-D8C24B30C590'
+    'EA2686EE-C9C3-41E1-98EB-FF0E169B738B' = '6C2B7690-1185-4876-B379-D8C24B30C590'
+    
+    # ports
+    '44354' = '44390'
+    '54817' = '52108'
+    '54648' = '52108'
+    '44323' = '44390'
+    '54728' = '52108'
+    '44311' = '44390'
+    '54780' = '52108'
+    '44367' = '44390'
+    '54789' = '52108'
+    '44370' = '44390'
+    '54794' = '52108'
+    '44385' = '44390'
+}
+$folder = 'C:\temp\dotnet-temp\doreplace\'
+Push-Location $folder
+Get-ChildItem $folder .vs -Recurse -Hidden|Remove-Item -Recurse -Force
+sayedha removefolders -f bin -f obj -f .vs
+Replace-TextInFolder -folder $folder -replacements $replacements 
+Pop-Location
