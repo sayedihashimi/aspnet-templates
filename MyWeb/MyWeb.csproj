@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-MyWeb_Server-0230345e-a8fd-4b2d-b9bf-09c669cd42e5</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Identity.Web" Version="0.4.0-preview" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="0.4.0-preview" />
+  </ItemGroup>
 
 </Project>
